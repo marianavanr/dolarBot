@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?><blockly audit="false" bpmnAble="false" formTarget="" resourceType="JAVA" ruleDescription="deusebom" ruleName="deusebom" ruleSynchronous="false" ruleTimeout="" ruleType="I" soap="false">
+  <metadata scale="1" scrollx="607" scrolly="-81.39999999999992" target="Anb:u5+^,0vLkL9QIqn5"/>
+  <block asynccall="false" colour="#995ba5" id="Anb:u5+^,0vLkL9QIqn5" origintype="procedures_defreturn" output="false" tooltip="Cria uma função que possui um valor de retorno." type="procedures_defreturn" x="-337" y="203">
+    <field name="NAME">Executar</field>
+    <comment h="80" pinned="false" w="160">deusebom</comment>
+    <statement name="STACK">
+      <block asynccall="false" colour="#5ba58c" dependencyby="Anb:u5+^,0vLkL9QIqn5" id="?[65`Dh$[v(1NMZatAhN" origintype="text_print" output="false" tooltip="Imprime o texto, número ou valor especificado." type="text_print">
+        <value name="TEXT">
+          <shadow asynccall="false" colour="#5ba593" dependencyby="Anb:u5+^,0vLkL9QIqn5" id="2T]hDqJzh3TIc$%)%DSy" origintype="text" output="true" tooltip="function() {&#10;    [native code]&#10;}" type="text">
+            <field name="TEXT">deus e bom</field>
+          </shadow>
+        </value>
+      </block>
+    </statement>
+  </block>
+</blockly>
