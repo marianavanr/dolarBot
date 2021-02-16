@@ -1,0 +1,88 @@
+{
+  "chatbot": {
+    "watson": {
+      "workspace": "0e9d9ecf-604b-4f71-9597-f02dd115e66e",
+      "username": "apikey",
+      "password": "f4gCe-O5-Ql9BTVUYsddcc6wTz8HijopVeUatYQhys8s",
+      "error": "e57b808c-1281-413b-984e-7ab0fb35428a",
+      "log": true,
+      "typingIndicator": true,
+      "blocklyPre" : "blockly.WatsonPre",
+      "blocklyPos" : ""
+      },
+    "facebook": {
+      "page": "EAAe21uAd204BAIydlIZBAI2awAMj746GUHTsEG3egrnnPXjsgFLXbP2QlpB42mXQOpluRlXp3qE5B9fNh7I96IQHIKHpAQV7KSv6ZAvOZBLdDWDWHXZAfybfFMQ6wmZAnYgHmUk3qDZAHN9DQAUP2Rz9SvVc0VdVphNVlAHeR1cgZDZD",
+      "app": "8407c6b61e189a643f313beec12f5799",
+      "verify": "8407c6b61e189a643f313beec12f5799",
+      "typingIndicator": true
+    },
+    "telegram": {
+      "token": "1565500926:AAGr77anCk4vH9tNgaPG740CzYc8-tVMNsg",
+      "url": "https://app-29-152-11498.ide.cronapp.io/api/cronapi/chatbot/telegram",
+      "typingIndicator": true
+    },
+    "cronchat":
+    {
+      "token": "1565500926:AAGr77anCk4vH9tNgaPG740CzYc8-tVMNsg",
+      "url": "https://app-29-152-11498.ide.cronapp.io/api/cronapi/chatbot/cronchat",
+      "urlCronchatApi": "https://cronchatcronapp.cronapp.io/",
+      "botName": "Lucas",
+      "botGender": "male",
+      "startPostMessage": "oi",
+      "title": "Assistente Virtual UNIP",
+      "subtitle": "Lucas, Assistente Virtual",
+      "urlAvatar": "https://app-29-152-11498.ide.cronapp.io/img/lucasbot.png",
+      
+      "typingIndicator": true,
+      
+      "titleColor": "RoyalBlue", 
+      "titleFont": "Arial", 
+      "titleFontSize": "16px",
+      "titleFontColor": "White", 
+      "subtitleFont": "Arial",
+      "subtitleFontSize": "14px",
+      "subtitleFontColor": "RoyalBlue",
+  
+      "carouselTitleFont": "Arial",
+      "carouselTitleFontSize":"14px", 
+      "carouselsubtitleFont": "Arial",
+      "carouselSubtitleFontSize": "0px",
+
+      "carouselQrButtonColor": "RoyalBlue", 
+      "carouselQrButtonFontColor": "White", 
+      "carouselQrButtonFontSize": "14px",
+      "carouselQrButtonFont": "Arial",
+
+      "carouselQrButtonColorHover": "LightBlue",
+      "carouselQrButtonFontColorHover": "Black", 
+      "carouselQrButtonFontSizeHover": "14px",
+      "carouselQrButtonFontHover": "Arial",
+
+      "carouselQrButtonClickedColor": "DodgerBlue", 
+      "carouselQrButtonFontClickedColor": "White",
+      "carouselQrButtonClickedFontSize": "14px",
+      "carouselQrButtonClickedFont": "Arial",
+
+      "ballonFont": "Arial", 
+      "ballonFontSize": "14px", 
+      "ballonFontColor": "Black", 
+      "ballonColor": "Gainsboro", 
+
+      "ballonUserColor": "Gainsboro",
+      "ballonUserFontColor": "Black",
+
+      "buttonSendMsgColor": "gray",
+      "inputFont": "Arial", 
+      "inputFontSize":"14px", 
+      "chatColor": "White",
+
+      "buttonStartChatColor": "transparent", 
+      "buttonStartImageBackground": "https://app-29-152-11498.ide.cronapp.io/img/avatarUNIP.png",
+      "buttonStartImageBackgroundSize": "100%",
+      "buttonStartWidth": "140px",
+      "buttonStartHeight": "140px",
+      "buttonStartBorderRadius": "0%"
+
+    }
+  }
+}
