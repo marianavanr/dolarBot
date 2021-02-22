@@ -1,84 +1,8 @@
 {
-    "apiLyceum":
+    "apiCambio":
     {
-      "url":"gfateste.unip.br/api/",
-      "urlX":"gfateste.unip.br/aluno/apix/",
-      "urlProd":"gfa.unip.br/api/",
-      "urlHml":"chatbot.unip.br/api/",
-      "urlCartao": "gfateste.unip.br/",
-      "usuario":"apiuser",
-      "senha":"apiuser@123"
+      "url":"https://economia.awesomeapi.com.br/json/all"
     },
 
-    "apiLyceumApix":
-    {
-      "url":"192.168.0.11:8080/api/",
-      "usuario":"apiuser",
-      "senha":"apiuser@123"
-
-    },
-    
-     "apiInscricao":{
-        "url":"https://app-29-152-11498.ide.cronapp.io/apiunip/inscricoes/v1/"
-    },
-    
-    "posGraduacao":{
-      "url":"http://200.174.103.126/api/",
-      "urlCartao": "http://200.174.103.126/",
-      "urlCaptacao":"http://api.comunicacaounip.com.br/",
-      "usuario":"PoSUnip@2019",
-      "senha":"2019@PoSUnip",
-      "codigo-convenio":"14"
-    },
-
-      "posGraduacaoCaptacao":{
-      "url":"http://api.comunicacaounip.com.br/",
-      "key":"X-API-KEY",
-      "value":"oc4wc4s4888ko0gcowo4cksk40kwg0wcsk0sos44",
-      "codigo-convenio":"14"
-    },
-
-    "apiDashboard":
-    {
-      "url":"api-assistente.lyceum.com.br/",
-      "id_assistente":"35de62c0-532a-11ea-ad9f-c38c8d012962",
-      "id_empresa":"4d7d3270-5349-11ea-8942-37adef2878d6"
-    },
-  
-    "unipProcessoChat":
-    {
-      "url":"200.174.103.229/ead/processoseletivo/chatbot/",
-      "urlDev":"unip.br/ead/processoseletivo/chatbot/",
-      "usuario":"chatbot",
-      "senha":"596A%ft",
-      "cursos_modalidade":"cursos/",
-      "cursos_modalidade_2":"/modalidades"
-    },
-    "unipServico":
-    {
-      "url":"https://www.unip.br/ead/api/servicos",
-      "urlSite":"https://www.unip.br"
-    },
-    "SoapServicoProcessoSeletivo":
-    {
-      "ObterCandidato":"http://servicos/ServicoProcessoSeletivo/ObterCandidato",
-      "AlterarPessoaCandidato":"http://servicos/ServicoProcessoSeletivo/AlterarPessoaCandidato",
-      "ObterLogradouroPorCep":"http://servicos/ServicoLocal/ObterLogradouroPorCep",
-      "ObterConfiguracaoDocumentosPorProcessoDoConcurso":"http://servicos/ServicoProcessoSeletivo/ObterConfiguracaoDocumentosPorProcessoDoConcurso",
-      "ObterDadosOfertaIngressoCandidato":"http://servicos/ServicoProcessoSeletivo/ObterDadosOfertaIngressoCandidato",
-      "ListarPlanosOfertados":"http://servicos/ServicoProcessoSeletivo/ListarPlanosOfertados",
-      "ListarPlanosOfertadosPadrao":"http://servicos/ServicoProcessoSeletivo/ListarPlanosOfertadosPadrao",
-      "EfetivarIngressoCandidato":"http://servicos/ServicoProcessoSeletivo/EfetivarIngressoCandidato",
-      "GeraContradoAlunoParaAceite":"http://servicos/ServicoProcessoSeletivo/GeraContradoAlunoParaAceite",
-      "IncluirAceiteDeContratoAluno":"http://servicos/ServicoProcessoSeletivo/IncluirAceiteDeContratoAluno",    
-      "GerarArquivoBoleto":"http://servicos/ServicoProcessoSeletivo/GerarArquivoBoleto"
-    },   
-    "unipPresencialServico":
-    {
-      "url":"200.174.103.229/presencial/vestibular/chatbot",
-      "urlDev":"unip.br/presencial/vestibular/chatbot",
-      "usuario":"chatbot",
-      "senha":"596A%ft"
-    },
-     "published_url":"https://uniphomologchatbot.cronapp.io/"
+     "published_url":"https://app-30-160-10298.ide.cronapp.io/"
   }
