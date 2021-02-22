@@ -105,75 +105,6 @@ import org.apache.http.impl.client.DefaultHttpClient;
 @CronapiMetaData(categoryName = "Extreme") 
 public class Extreme {
 
-	@CronapiMetaData(type = "function", name = "Download PDF From URL Authentication", nameTags = {
-			"Auth Basic" }, description = "Requisição PDF", returnType = ObjectType.JSON)
-
-	public static final Var downlaodPDF(
-		@ParamMetaData(type = ObjectType.STRING, description = "Caminho requisição") Var url, 
-		@ParamMetaData(type = ObjectType.STRING, description = "Nome de usuário") Var username,		
-		@ParamMetaData(type = ObjectType.STRING, description = "Senha de usuário") Var password,
-		@ParamMetaData(type = ObjectType.STRING, description = "Nome PDF (por padrão colocar o codigo do aluno)") Var codAluno)
-		throws Exception {
-
-
-		String urlResource = Var.valueOf(url).toString();
-		String userResource = Var.valueOf(username).toString();
-		String passResource = Var.valueOf(password).toString();
-		String codigoAluno = Var.valueOf(codAluno).toString();		
-		
-		String bucketName = CommonConstants.BUCKET_NAME;
-	    String objectName = "Contratos/Contrato_" + codigoAluno + ".pdf";
-		
-
-		TrustStrategy acceptingTrustStrategy = (X509Certificate[] chain, String authType) -> true;
-
-		SSLContext sslContext = org.apache.http.ssl.SSLContexts.custom().loadTrustMaterial(null, acceptingTrustStrategy).build();
-
-		SSLConnectionSocketFactory csf = new SSLConnectionSocketFactory(sslContext);
-
-		CloseableHttpClient httpClient = HttpClients.custom().setSSLSocketFactory(csf).build();
-	
-		HttpHost host = HttpHost.create(urlResource);
-
-		final ClientHttpRequestFactory requestFactory = new HttpComponentsClientHttpRequestFactoryBasicAuth(host);
-		
-    	RestTemplate restTemplate = new RestTemplate(requestFactory);
-		restTemplate.getInterceptors().add(new BasicAuthorizationInterceptor(userResource, passResource));
-			
-		AWSCredentials credentials = new BasicAWSCredentials(CommonConstants.ACCESS_KEY_ID, CommonConstants.ACCESS_SEC_KEY);
-
-		
-		try {			
-			((HttpComponentsClientHttpRequestFactory) requestFactory).setHttpClient(httpClient);
-			ResponseEntity<byte[]> response = restTemplate.getForEntity(urlResource, byte[].class);				
-			byte[] content = response.getBody();
-			InputStream stream = new ByteArrayInputStream(content);
-			ObjectMetadata meta = new ObjectMetadata();
-			meta.setContentLength(content.length);
-			meta.setContentType("contrato/pdf");
-
-			AmazonS3 s3client = AmazonS3ClientBuilder
-				  .standard()
-				  .withCredentials(new AWSStaticCredentialsProvider(credentials))
-				  .withRegion(Regions.US_EAST_1)
-				  .build();
-
-			s3client.putObject(new PutObjectRequest(bucketName, objectName, stream, meta));
-
-	        System.out.println("Arquivo transferido para o S3 Amazon"); 			
-				
-			return Var.valueOf(response.getBody());			
-				
-		}catch(AmazonServiceException e) {
-            // The call was transmitted successfully, but Amazon S3 couldn't process 
-            System.out.println(e);
-            e.printStackTrace();
-        }         
-
-		return Var.valueOf("OK");		
-
-	}
-
 	// REQUICAO GET PARA TRATA ERRO 500
 	@CronapiMetaData(type = "function", name = "Basic Auth error 500", nameTags = {
 			"Auth Basic" }, description = "Basic Auth error 500", returnType = ObjectType.JSON)
@@ -260,95 +191,7 @@ public class Extreme {
         return bytes;
     }
 
-	@CronapiMetaData(type = "function", name = "POST Download PDF From URL Authentication", nameTags = {
-			"Auth Basic" }, description = "Realizar um post de uma url autenticada e realizar o download de arquivo pdf", returnType = ObjectType.JSON)
-	public static final Var RequisitionPostWithDownload(
-		@ParamMetaData(type = ObjectType.STRING, description = "Caminho requisição") Var url, 
-		@ParamMetaData(type = ObjectType.STRING, description = "Nome de usuário") Var username,		
-		@ParamMetaData(type = ObjectType.STRING, description = "Senha de usuário") Var password,
-		@ParamMetaData(type = ObjectType.STRING, description = "Nome PDF (por padrão colocar o codigo do aluno)") Var codAluno,
-		@ParamMetaData(type = ObjectType.JSON, description = "Parâmetros (JSON)") Var parametros,
-		@ParamMetaData(type = ObjectType.STRING, description = "Content-Type") Var type)
-		throws Exception {
-
-		
-		String urlResource = Var.valueOf(url).toString();
-		String userResource = Var.valueOf(username).toString();
-		String passResource = Var.valueOf(password).toString();
-		String codigoAluno = Var.valueOf(codAluno).toString();		
-		
-		String bucketName = CommonConstants.BUCKET_NAME;
-	    String objectName = "ContratosRematricula/ContratoRematricula_" + codigoAluno + ".pdf";
-		
-		HttpHeaders headers = new HttpHeaders();
-
-		if (Var.valueOf(type).toString().equalsIgnoreCase("JSON")) {
-			headers.setContentType(MediaType.APPLICATION_JSON);
-		} else if (Var.valueOf(type).toString().equalsIgnoreCase("x_www_form_urlencoded")) {
-			headers.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
-		}
-
-		TrustStrategy acceptingTrustStrategy = (X509Certificate[] chain, String authType) -> true;
-
-		SSLContext sslContext = org.apache.http.ssl.SSLContexts.custom().loadTrustMaterial(null, acceptingTrustStrategy).build();
-
-		SSLConnectionSocketFactory csf = new SSLConnectionSocketFactory(sslContext);
-
-		CloseableHttpClient httpClient = HttpClients.custom().setSSLSocketFactory(csf).build();
 	
-		HttpHost host = HttpHost.create(urlResource);
-
-		HttpEntity<String> request = new HttpEntity<String>(Var.valueOf(parametros).toString(),headers);
-
-		final ClientHttpRequestFactory requestFactory = new HttpComponentsClientHttpRequestFactoryBasicAuth(host);
-		
-    	RestTemplate restTemplate = new RestTemplate(requestFactory);
-		restTemplate.getMessageConverters()
-        .add(0, new StringHttpMessageConverter(Charset.forName("UTF-8")));
-		restTemplate.getInterceptors().add(new BasicAuthorizationInterceptor(userResource, passResource));		
-
-		AWSCredentials credentials = new BasicAWSCredentials(CommonConstants.ACCESS_KEY_ID, CommonConstants.ACCESS_SEC_KEY);
-
-		
-		try {
-			
-				((HttpComponentsClientHttpRequestFactory) requestFactory).setHttpClient(httpClient);
-				ResponseEntity<String> response = restTemplate.postForEntity(urlResource, request, String.class);	
-				JSONObject jo = new JSONObject(response.getBody());
-				String contratoPDF = jo.get("contratoPDF").toString(); 
-				
-				String contratoPDFDecoder = contratoPDF;			
-
-					byte[] decoder = Base64.getDecoder().decode(contratoPDFDecoder);	
-					InputStream stream = new ByteArrayInputStream(decoder);
-					ObjectMetadata meta = new ObjectMetadata();
-					meta.setContentLength(decoder.length);
-					meta.setContentType("pdf/pdf");			
-
-					AmazonS3 s3client = AmazonS3ClientBuilder
-					  .standard()
-					  .withCredentials(new AWSStaticCredentialsProvider(credentials))
-					  .withRegion(Regions.US_EAST_1)
-					  .build();
-
-					s3client.putObject(new PutObjectRequest(bucketName, objectName, stream, meta));
-
-	        	System.out.println("Arquivo transferido para o S3 Amazon"); 		
-
-				return Var.valueOf(response.getBody());							
-			
-		} catch (Exception e) {
-			try {
-				((HttpComponentsClientHttpRequestFactory) requestFactory).setHttpClient(httpClient);						
-				ResponseEntity<String> response = restTemplate.postForEntity(urlResource, request, String.class);	
-				return Var.valueOf(response.getBody());
-			} catch (Exception exc) {
-				return Var.valueOf(exc);
-			}
-	
-		}      
-
-	}
 
 	// REQUIcAO GET PARA TRATA ERRO 500 2
     @CronapiMetaData(type = "function", name = "Basic Auth error 500 Rematricula", nameTags = {
@@ -762,53 +605,7 @@ public class Extreme {
 	}
 
 
-	@CronapiMetaData(type = "function", name = "Gerar Imagem Base64", nameTags = {
-			"Auth Basic" }, description = "Gerar Imagem Base64", returnType = ObjectType.JSON)
-
-	public static final Var downlaodImage(		
-		@ParamMetaData(type = ObjectType.STRING, description = "Base64") Var dadosBase64,
-		@ParamMetaData(type = ObjectType.STRING, description = "Nome Imagem (por padrão colocar o codigo do aluno)") Var codAluno)
-		throws Exception {
-
-		String base64 = Var.valueOf(dadosBase64).toString();
-		String codigoAluno = Var.valueOf(codAluno).toString();		
-		
-		String bucketName = CommonConstants.BUCKET_NAME;
-	    String objectName = "Pix/Imagens_" + codigoAluno + ".png";		
-			
-		AWSCredentials credentials = new BasicAWSCredentials(CommonConstants.ACCESS_KEY_ID, CommonConstants.ACCESS_SEC_KEY);
-
-		
-		try {	
-			//org.apache.commons.codec.binary.Base64.decodeBase64((base64.substring(base64.indexOf(",")+1)).getBytes());
-			//		
-			byte[] decoder = Base64.getDecoder().decode(base64);		
-			InputStream stream = new ByteArrayInputStream(decoder);
-			ObjectMetadata meta = new ObjectMetadata();
-			meta.setContentLength(decoder.length);
-			meta.setContentType("image/png");
-
-			AmazonS3 s3client = AmazonS3ClientBuilder
-				  .standard()
-				  .withCredentials(new AWSStaticCredentialsProvider(credentials))
-				  .withRegion(Regions.US_EAST_1)
-				  .build();
-
-			s3client.putObject(new PutObjectRequest(bucketName, objectName, stream, meta));
-
-	        System.out.println("Arquivo transferido para o S3 Amazon"); 			
-				
-			return Var.valueOf("OK OK");			
-				
-		}catch(AmazonServiceException e) {
-            // The call was transmitted successfully, but Amazon S3 couldn't process 
-            System.out.println(e);
-            e.printStackTrace();
-        }         
-
-		return Var.valueOf("OK");		
-
-	}
+	
 
 	// FUNÇÃO PARA REQUISIÇÕES POST SEM AUTENTICAÇÃO
 	@CronapiMetaData(type = "function", name = "Requisition POST Sem Autenticação", nameTags = {
