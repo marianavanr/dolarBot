@@ -92,6 +92,9 @@ public static Var Executar(Var context, Var intents, Var entities) throws Except
         Var.valueOf("listaUnidades").getObjectAsString());
 
         System.out.println(listaUnidades.getObjectAsString());
+
+        System.out.println(
+        Var.valueOf("carrossel").getObjectAsString());
      } catch (Exception exception_exception) {
           exception = Var.valueOf(exception_exception);
 

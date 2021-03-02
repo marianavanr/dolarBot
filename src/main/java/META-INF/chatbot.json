@@ -18,20 +18,20 @@
     },
     "telegram": {
       "token": "1565500926:AAGr77anCk4vH9tNgaPG740CzYc8-tVMNsg",
-      "url": "https://app-30-160-10578.ide.cronapp.io/api/cronapi/chatbot/telegram",
+      "url": "https://app-28-198-10138.ide.cronapp.io/api/cronapi/chatbot/telegram",
       "typingIndicator": true
     },
     "cronchat":
     {
       "token": "1565500926:AAGr77anCk4vH9tNgaPG740CzYc8-tVMNsg",
-      "url": "https://app-30-160-10578.ide.cronapp.io/api/cronapi/chatbot/cronchat",
+      "url": "https://app-28-198-10138.ide.cronapp.io/api/cronapi/chatbot/cronchat",
       "urlCronchatApi": "https://cronchatcronapp.cronapp.io/",
       "botName": "Lucas",
       "botGender": "male",
       "startPostMessage": "oi",
       "title": "Assistente Virtual UNIP",
       "subtitle": "Lucas, Assistente Virtual",
-      "urlAvatar": "https://app-30-160-10578.ide.cronapp.io/img/lucasbot.png",
+      "urlAvatar": "https://app-28-198-10138.ide.cronapp.io/img/lucasbot.png",
       
       "typingIndicator": true,
       
@@ -77,7 +77,7 @@
       "chatColor": "White",
 
       "buttonStartChatColor": "transparent", 
-      "buttonStartImageBackground": "https://app-30-160-10578.ide.cronapp.io/img/avatarUNIP.png",
+      "buttonStartImageBackground": "https://app-28-198-10138.ide.cronapp.io/img/avatarUNIP.png",
       "buttonStartImageBackgroundSize": "100%",
       "buttonStartWidth": "140px",
       "buttonStartHeight": "140px",

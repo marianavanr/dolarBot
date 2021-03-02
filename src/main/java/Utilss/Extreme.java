@@ -46,7 +46,7 @@ import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.util.EntityUtils;
-
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import org.springframework.http.HttpEntity;
@@ -677,6 +677,26 @@ public class Extreme {
 
 	}
 
+    //* FUNÇÃO PARA REMOVER O BRACKETS DO JSON
+    @CronapiMetaData(type = "function", name = "Remove Brackets Json", nameTags = {
+            "Auth Basic" }, description = "Remove Brackets Json" , returnType = ObjectType.STRING)
+    
+    public static String RemoveListJson(@ParamMetaData(type = ObjectType.STRING, description = "JSON") String inputJson) throws JSONException  {
+
+        try {            
+            String strBrackets = Var.valueOf(inputJson).toString();
+            //*String strBrackets2;
+            strBrackets = strBrackets.replaceAll("\\[","").replaceAll("\\]", "");
+            //strBrackets2 = strBrackets.replaceAll("\\{","").replaceAll("\\}", "");
+
+            return Var.valueOf(strBrackets).toString();    
+            
+        
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+            return null;
+    }
 
 
 	
