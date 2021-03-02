@@ -59,7 +59,7 @@ public static Var Executar(Var context, Var intents, Var entities) throws Except
         System.out.println(calculoCambio.getObjectAsString());
 
         listaCalculoCambio =
-        Var.valueOf(Utilss.Extreme.RemoveListJson(calculoCambio.getTypedObject(String.class)));
+        cronapi.map.Operations.toList(calculoCambio);
 
         System.out.println(listaCalculoCambio.getObjectAsString());
      } catch (Exception exception_exception) {
