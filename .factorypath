@@ -192,7 +192,7 @@
     <factorypathentry kind="VARJAR" id="M2_REPO/xml-apis/xml-apis/1.4.01/xml-apis-1.4.01.jar" enabled="true" runInBatchMode="false"/>
     <factorypathentry kind="VARJAR" id="M2_REPO/org/opensaml/xmltooling/1.4.4/xmltooling-1.4.4.jar" enabled="true" runInBatchMode="false"/>
     <factorypathentry kind="VARJAR" id="M2_REPO/ca/juliusdavies/not-yet-commons-ssl/0.3.9/not-yet-commons-ssl-0.3.9.jar" enabled="true" runInBatchMode="false"/>
-    <factorypathentry kind="VARJAR" id="M2_REPO/io/cronapp/cronapp-reports-exec/2.7.0/cronapp-reports-exec-2.7.0.jar" enabled="true" runInBatchMode="false"/>
+    <factorypathentry kind="VARJAR" id="M2_REPO/io/cronapp/cronapp-reports-exec/2.7.1/cronapp-reports-exec-2.7.1.jar" enabled="true" runInBatchMode="false"/>
     <factorypathentry kind="VARJAR" id="M2_REPO/ar/com/fdvs/DynamicJasper/5.1.0/DynamicJasper-5.1.0.jar" enabled="true" runInBatchMode="false"/>
     <factorypathentry kind="VARJAR" id="M2_REPO/net/sf/jasperreports/jasperreports/6.3.0/jasperreports-6.3.0.jar" enabled="true" runInBatchMode="false"/>
     <factorypathentry kind="VARJAR" id="M2_REPO/commons-digester/commons-digester/2.1/commons-digester-2.1.jar" enabled="true" runInBatchMode="false"/>
@@ -222,7 +222,7 @@
     <factorypathentry kind="VARJAR" id="M2_REPO/com/amazonaws/jmespath-java/1.11.543/jmespath-java-1.11.543.jar" enabled="true" runInBatchMode="false"/>
     <factorypathentry kind="VARJAR" id="M2_REPO/com/amazonaws/aws-java-sdk-sts/1.11.543/aws-java-sdk-sts-1.11.543.jar" enabled="true" runInBatchMode="false"/>
     <factorypathentry kind="VARJAR" id="M2_REPO/com/itextpdf/itextpdf/5.5.6/itextpdf-5.5.6.jar" enabled="true" runInBatchMode="false"/>
-    <factorypathentry kind="VARJAR" id="M2_REPO/io/cronapp/cronapi-java/2.7.21/cronapi-java-2.7.21.jar" enabled="true" runInBatchMode="false"/>
+    <factorypathentry kind="VARJAR" id="M2_REPO/io/cronapp/cronapi-java/2.7.22/cronapi-java-2.7.22.jar" enabled="true" runInBatchMode="false"/>
     <factorypathentry kind="VARJAR" id="M2_REPO/org/jdom/jdom2/2.0.6/jdom2-2.0.6.jar" enabled="true" runInBatchMode="false"/>
     <factorypathentry kind="VARJAR" id="M2_REPO/org/apache/commons/commons-compress/1.8/commons-compress-1.8.jar" enabled="true" runInBatchMode="false"/>
     <factorypathentry kind="VARJAR" id="M2_REPO/org/tukaani/xz/1.5/xz-1.5.jar" enabled="true" runInBatchMode="false"/>
@@ -288,6 +288,7 @@
     <factorypathentry kind="VARJAR" id="M2_REPO/com/stimulsoft/stimulsoft-reports-base/2020.3.2/stimulsoft-reports-base-2020.3.2.jar" enabled="true" runInBatchMode="false"/>
     <factorypathentry kind="VARJAR" id="M2_REPO/com/stimulsoft/stimulsoft-reports-lib/2020.3.2/stimulsoft-reports-lib-2020.3.2.jar" enabled="true" runInBatchMode="false"/>
     <factorypathentry kind="VARJAR" id="M2_REPO/com/kitfox/svg/svg-salamander/1.0/svg-salamander-1.0.jar" enabled="true" runInBatchMode="false"/>
+    <factorypathentry kind="VARJAR" id="M2_REPO/org/freemarker/freemarker/2.3.28/freemarker-2.3.28.jar" enabled="true" runInBatchMode="false"/>
     <factorypathentry kind="VARJAR" id="M2_REPO/org/reflections/reflections/0.9.12/reflections-0.9.12.jar" enabled="true" runInBatchMode="false"/>
     <factorypathentry kind="VARJAR" id="M2_REPO/org/jdom/jdom/1.1/jdom-1.1.jar" enabled="true" runInBatchMode="false"/>
     <factorypathentry kind="VARJAR" id="M2_REPO/org/jsoup/jsoup/1.11.3/jsoup-1.11.3.jar" enabled="true" runInBatchMode="false"/>

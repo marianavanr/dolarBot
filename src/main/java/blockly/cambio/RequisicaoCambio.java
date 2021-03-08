@@ -85,12 +85,16 @@ public static Var Executar(Var context, Var intents, Var entities) throws Except
                 cronapi.map.Operations.createObjectMapWith(Var.valueOf("name",
                 cronapi.json.Operations.getJsonOrMapField(i,
                 Var.valueOf("name"))) , Var.valueOf("low",
+                Var.valueOf(Utilss.Tasks.FunctionFormatValue(
                 cronapi.json.Operations.getJsonOrMapField(i,
-                Var.valueOf("low"))));
+                Var.valueOf("low"))))));
             }
         } // end for
 
         System.out.println(jsonMoeda.getObjectAsString());
+
+        cronapi.json.Operations.setJsonOrMapField(context,
+        Var.valueOf("cambioEscolhido"), jsonMoeda);
      } catch (Exception exception_exception) {
           exception = Var.valueOf(exception_exception);
 

@@ -26,9 +26,10 @@ public static Var Executar(Var context, Var intents, Var entities) throws Except
 
    private Var cidadeCliente = Var.VAR_NULL;
    private Var unidadesCambio = Var.VAR_NULL;
-   private Var listaUnidades = Var.VAR_NULL;
+   private Var listaOpcoesUnidades = Var.VAR_NULL;
    private Var i = Var.VAR_NULL;
-   private Var jsonEscolhaUnidade = Var.VAR_NULL;
+   private Var jsonUnidades = Var.VAR_NULL;
+   private Var carousel = Var.VAR_NULL;
    private Var exception = Var.VAR_NULL;
 
    public Var call() throws Exception {
@@ -48,15 +49,21 @@ public static Var Executar(Var context, Var intents, Var entities) throws Except
         Var.valueOf("cidade"));
 
         System.out.println(
-        Var.valueOf("requisição api").getObjectAsString());
+        Var.valueOf("cidade escolhida do cliente").getObjectAsString());
+
+        System.out.println(cidadeCliente.getObjectAsString());
+
+        System.out.println(
+        Var.valueOf("Requisição api").getObjectAsString());
 
         unidadesCambio =
+        cronapi.json.Operations.toJson(
         Var.valueOf(Utilss.Extreme.requisitionGetNotAut(
-        Var.valueOf("https://www3.bcb.gov.br/vet/rest/v2/listaPontoCambio?cnpj=00000000")));
+        Var.valueOf("https://www3.bcb.gov.br/vet/rest/v2/listaPontoCambio?cnpj=00000000"))));
 
         System.out.println(unidadesCambio.getObjectAsString());
 
-        listaUnidades =
+        listaOpcoesUnidades =
         cronapi.list.Operations.newList();
 
         for (Iterator it_i =
@@ -66,12 +73,18 @@ public static Var Executar(Var context, Var intents, Var entities) throws Except
 
             if (
             Var.valueOf(
+            Var.valueOf(
             Var.valueOf((
             cronapi.json.Operations.getJsonOrMapField(i,
             Var.valueOf("cidade"))).getObjectAsString().toUpperCase()).equals(
-            Var.valueOf(cidadeCliente.getObjectAsString().toUpperCase()))).getObjectAsBoolean()) {
+            Var.valueOf(cidadeCliente.getObjectAsString().toUpperCase()))).getObjectAsBoolean() ||
+            Var.valueOf(
+            Var.valueOf((
+            cronapi.json.Operations.getJsonOrMapField(i,
+            Var.valueOf("uf"))).getObjectAsString().toUpperCase()).equals(
+            Var.valueOf(cidadeCliente.getObjectAsString().toUpperCase()))).getObjectAsBoolean()).getObjectAsBoolean()) {
 
-                jsonEscolhaUnidade =
+                jsonUnidades =
                 cronapi.map.Operations.createObjectMapWith(Var.valueOf("cidade",
                 cronapi.json.Operations.getJsonOrMapField(i,
                 Var.valueOf("cidade"))) , Var.valueOf("endereco",
@@ -80,21 +93,30 @@ public static Var Executar(Var context, Var intents, Var entities) throws Except
                 cronapi.json.Operations.getJsonOrMapField(i,
                 Var.valueOf("horaAbreDiaUtil"))) , Var.valueOf("horaFechaDiaUtil",
                 cronapi.json.Operations.getJsonOrMapField(i,
-                Var.valueOf("horaFechaDiaUtil"))) , Var.valueOf("telefone1",
+                Var.valueOf("horaFechaDiaUtil"))) , Var.valueOf("nome",
                 cronapi.json.Operations.getJsonOrMapField(i,
-                Var.valueOf("telefone1"))));
+                Var.valueOf("nome"))) , Var.valueOf("telefone1",
+                cronapi.json.Operations.getJsonOrMapField(i,
+                Var.valueOf("telefone1"))) , Var.valueOf("uf",
+                cronapi.json.Operations.getJsonOrMapField(i,
+                Var.valueOf("uf"))));
 
-                cronapi.list.Operations.addLast(listaUnidades,jsonEscolhaUnidade);
+                cronapi.list.Operations.addLast(listaOpcoesUnidades,jsonUnidades);
             }
         } // end for
 
         System.out.println(
-        Var.valueOf("listaUnidades").getObjectAsString());
+        Var.valueOf("lista opções unidades").getObjectAsString());
 
-        System.out.println(listaUnidades.getObjectAsString());
+        System.out.println(listaOpcoesUnidades.getObjectAsString());
 
-        System.out.println(
-        Var.valueOf("carrossel").getObjectAsString());
+        carousel =
+        blockly.unidades.carrossel.Gerenciador.Executar(listaOpcoesUnidades,
+        cronapi.json.Operations.getJsonOrMapField(context,
+        Var.valueOf("indiceCarousel")), context);
+
+        cronapi.json.Operations.setJsonOrMapField(context,
+        Var.valueOf("carousel"), carousel);
      } catch (Exception exception_exception) {
           exception = Var.valueOf(exception_exception);
 
