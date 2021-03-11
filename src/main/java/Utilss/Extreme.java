@@ -677,6 +677,7 @@ public class Extreme {
 
 	}
 
+/*
     //* FUNÇÃO PARA REMOVER O BRACKETS DO JSON
     @CronapiMetaData(type = "function", name = "Remove Brackets Json", nameTags = {
             "Auth Basic" }, description = "Remove Brackets Json" , returnType = ObjectType.STRING)
@@ -692,13 +693,13 @@ public class Extreme {
             return Var.valueOf(strBrackets).toString();    
             
         
-        } catch (JSONException e) {
+        } catch (JSONException e) { ************* Erro no exception
             e.printStackTrace();
         }
             return null;
     }
 
-
+*/
 	
 
 }

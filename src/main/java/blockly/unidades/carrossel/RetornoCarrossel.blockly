@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?><blockly audit="false" bpmnAble="false" formTarget="" resourceType="JAVA" ruleDescription="RetornoCarrossel" ruleName="RetornoCarrossel" ruleSynchronous="false" ruleTimeout="" ruleType="I" soap="false">
-  <metadata scale="1" scrollx="452.70000000000005" scrolly="-90.20000000000039" target="Anb:u5+^,0vLkL9QIqn5"/>
-  <block asynccall="false" colour="#995ba5" id="Anb:u5+^,0vLkL9QIqn5" origintype="procedures_defreturn" output="false" tooltip="Cria uma função que possui um valor de retorno." type="procedures_defreturn" x="-157" y="218">
-    <field customattributes="" name="NAME">Executar</field>
-    <comment h="80" pinned="false" w="160">RetornoCarrossel</comment>
-  </block>
-</blockly>

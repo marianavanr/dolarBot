@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?><blockly audit="false" bpmnAble="false" formTarget="" resourceType="JAVA" ruleDescription="GerenciadorCarousel" ruleName="GerenciadorCarousel" ruleSynchronous="false" ruleTimeout="" ruleType="I" soap="false">
-  <metadata scale="1" scrollx="740" scrolly="-157.5" target="Anb:u5+^,0vLkL9QIqn5"/>
+  <metadata scale="1" scrollx="688" scrolly="-1825.500000000003" target="Anb:u5+^,0vLkL9QIqn5"/>
   <block asynccall="false" colour="#995ba5" id="Anb:u5+^,0vLkL9QIqn5" origintype="procedures_defreturn" output="false" tooltip="Cria uma função que possui um valor de retorno." type="procedures_defreturn" x="-667" y="173">
     <mutation>
       <arg name="listaRecebida"/>

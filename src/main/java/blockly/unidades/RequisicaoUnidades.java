@@ -24,7 +24,7 @@ public static final int TIMEOUT = 300;
 public static Var Executar(Var context, Var intents, Var entities) throws Exception {
  return new Callable<Var>() {
 
-   private Var cidadeCliente = Var.VAR_NULL;
+   private Var ufCliente = Var.VAR_NULL;
    private Var unidadesCambio = Var.VAR_NULL;
    private Var listaOpcoesUnidades = Var.VAR_NULL;
    private Var i = Var.VAR_NULL;
@@ -44,14 +44,14 @@ public static Var Executar(Var context, Var intents, Var entities) throws Except
 
         System.out.println(context.getObjectAsString());
 
-        cidadeCliente =
+        ufCliente =
         cronapi.json.Operations.getJsonOrMapField(context,
         Var.valueOf("cidade"));
 
         System.out.println(
         Var.valueOf("cidade escolhida do cliente").getObjectAsString());
 
-        System.out.println(cidadeCliente.getObjectAsString());
+        System.out.println(ufCliente.getObjectAsString());
 
         System.out.println(
         Var.valueOf("Requisição api").getObjectAsString());
@@ -73,16 +73,10 @@ public static Var Executar(Var context, Var intents, Var entities) throws Except
 
             if (
             Var.valueOf(
-            Var.valueOf(
-            Var.valueOf((
-            cronapi.json.Operations.getJsonOrMapField(i,
-            Var.valueOf("cidade"))).getObjectAsString().toUpperCase()).equals(
-            Var.valueOf(cidadeCliente.getObjectAsString().toUpperCase()))).getObjectAsBoolean() ||
-            Var.valueOf(
             Var.valueOf((
             cronapi.json.Operations.getJsonOrMapField(i,
             Var.valueOf("uf"))).getObjectAsString().toUpperCase()).equals(
-            Var.valueOf(cidadeCliente.getObjectAsString().toUpperCase()))).getObjectAsBoolean()).getObjectAsBoolean()) {
+            Var.valueOf(ufCliente.getObjectAsString().toUpperCase()))).getObjectAsBoolean()) {
 
                 jsonUnidades =
                 cronapi.map.Operations.createObjectMapWith(Var.valueOf("cidade",
@@ -117,6 +111,9 @@ public static Var Executar(Var context, Var intents, Var entities) throws Except
 
         cronapi.json.Operations.setJsonOrMapField(context,
         Var.valueOf("carousel"), carousel);
+
+        cronapi.json.Operations.setJsonOrMapField(context,
+        Var.valueOf("listaInfosUnidades"), listaOpcoesUnidades);
      } catch (Exception exception_exception) {
           exception = Var.valueOf(exception_exception);
 
